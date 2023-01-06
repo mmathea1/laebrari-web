@@ -1,7 +1,22 @@
-<div>
-    <form action="/login" method="post">
-        <input type="email" name="username" value="" />
-        <input type="password" name="password" value="" />
-        <button type="submit" class="btn btn-default" name="login" value="">Login</button>
-    </form>
+<div class="authentication-card-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="loginForm">
+                <mat-form-field>
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" />
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onSubmit()">Login</button>
+        </mat-card-actions>
+    </mat-card>
 </div>
