@@ -12,8 +12,8 @@ export class AuthenticationClient {
 
     public login(username: string, password: string): Observable<string> {
         return this.http.post(
-            environment.apiUrl + '/login', {
-            username: username,
+            environment.apiUrl + '/accounts/login/', {
+               username: username,
             password: password
         },
             { responseType: 'text' }
@@ -22,7 +22,7 @@ export class AuthenticationClient {
 
     public register(username: string, password: string): Observable<string> {
         return this.http.post(
-            environment.apiUrl + '/register', {
+            environment.apiUrl + '/registration/', {
             username: username,
             password: password
         },
