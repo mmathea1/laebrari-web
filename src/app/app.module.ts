@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { TokenInterceptor } from './helpers/token.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HomeComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,10 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatCardModule,
     MatInputModule,
-    HttpClientXsrfModule.withOptions({
-      cookieName: 'XSRF-TOKEN',
-      headerName: 'X-CSRF-TOKEN'
-    })
+    HttpClientXsrfModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
