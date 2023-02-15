@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
       username: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
+      password2: new FormControl('', Validators.required),
       first_name: new FormControl('', Validators.required),
       last_name: new FormControl('', Validators.required),
     });
@@ -27,11 +28,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     this.authenticationService.register(
-      this.registrationForm.get('username')!.value,
-      this.registrationForm.get('email')!.value,
-      this.registrationForm.get('password')!.value,
-      this.registrationForm.get('first_name')!.value,
-      this.registrationForm.get('last_name')!.value
+      this.registrationForm.value
     ).subscribe(data => {
       this.isSuccessful = true;
       this.isSignUpFailed = false;
