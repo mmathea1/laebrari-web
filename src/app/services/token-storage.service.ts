@@ -36,4 +36,9 @@ export class TokenStorageService {
     }
     return {};
   }
+
+  public isAuthenticated(): boolean {
+    const token = this.getToken();
+    return token !== null && token !== undefined;
+  }
 }

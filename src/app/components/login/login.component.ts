@@ -20,11 +20,15 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  public onSubmit() {
-    this.authenticationService.login(
-      this.loginForm.get('username')!.value,
-      this.loginForm.get('password')!.value
-    );
+  public loginUser() {
+    const username = this.loginForm.get('username')!.value;
+    const password = this.loginForm.get('password')!.value
+    console.log('username: ', username);
+    this.authenticationService.login(username, password).subscribe(result => {
+      console.log(result);
+    }, err => {
+      console.log('login failed because of: ', err);
+    });
   }
 
 }

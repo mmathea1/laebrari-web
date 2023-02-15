@@ -1,27 +1,40 @@
 import { AuthenticationService } from './../services/authentication.service';
 import {
+    HttpErrorResponse,
     HttpEvent,
     HttpHandler,
-    HttpHeaders,
     HttpInterceptor,
     HttpRequest,
-    HttpXsrfTokenExtractor,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { TokenStorageService } from '../services/token-storage.service';
+import { Observable, catchError, throwError } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 
-const TOKEN_HEADER_KEY = 'Authorization';
-
+const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-    constructor(private token: TokenStorageService) { }
+    constructor(private authService: AuthenticationService) { }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        let authReq = request;
-        const token = this.token.getToken();
-        if (token != null) {
-            authReq = request.clone({ headers: request.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token) });
+        const token = this.authService.getAuthToken();
+        console.log('token: ' + token);
+        if (token) {
+            request = request.clone({
+                setHeaders: {
+                    Authorization: `Token ${token}`
+                }
+            });
         }
-        return next.handle(authReq);
+        return next.handle(request).pipe(
+            catchError(err => {
+                if (err instanceof HttpErrorResponse) {
+                    if (err.status === 401) {
+                        // redirect to logout page
+                    }
+                }
+                return throwError(err);
+            })
+        )
     }
 }

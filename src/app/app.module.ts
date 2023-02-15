@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { TokenInterceptor } from './helpers/token.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthenticationService } from './services/authentication.service';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientXsrfModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+    AuthenticationService, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
