@@ -24,16 +24,6 @@ export class AuthenticationService {
     return this.http.post(AUTH_API + 'login/', { username, password });
   }
 
-  authenticate(username: string, password: string): any {
-    let token: any;
-    this.http.post(AUTH_API + '/api-token-auth/', { username, password }).subscribe(data => {
-      token = data;
-    });
-    // { "username": username, "password": password }
-    return localStorage.setItem('token', token);
-
-  }
-
   getAuthToken(): string | null {
     return localStorage.getItem('token');
   }

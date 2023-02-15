@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
     const username = this.loginForm.get('username')!.value;
     const password = this.loginForm.get('password')!.value
     this.authenticationService.login(username, password).subscribe(result => {
+      console.log("signal: ", result['token']);
+      localStorage.setItem('token', result['token']);
       this.router.navigate(['/home']);
     }, err => {
       console.log('login failed because of: ', err);

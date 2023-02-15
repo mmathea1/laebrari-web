@@ -8,14 +8,16 @@ import { TokenStorageService } from './services/token-storage.service';
 })
 export class AppComponent implements OnInit {
   isLoggedIn = false;
+  user = {};
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    this.isLoggedIn = !!this.tokenStorageService.isAuthenticated();
 
     if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getSessionUser();
+      this.user = this.tokenStorageService.getSessionUser();
+      console.log(this.user);
     }
   }
 
