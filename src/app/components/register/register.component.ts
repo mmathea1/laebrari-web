@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
   public isSignUpFailed = false;
   private errorMessage = '';
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
     this.registrationForm = new FormGroup({
@@ -32,6 +33,8 @@ export class RegisterComponent implements OnInit {
     ).subscribe(data => {
       this.isSuccessful = true;
       this.isSignUpFailed = false;
+      if (data.status == '200') this.router.navigate(['/login']);
+
     }, err => {
       this.errorMessage = err.error.message;
       this.isSignUpFailed = true;
