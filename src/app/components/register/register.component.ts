@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
     ).subscribe(data => {
       this.isSuccessful = true;
       this.isSignUpFailed = false;
-      if (data.status == '200') this.router.navigate(['/login']);
+      this.router.navigate(['/login']);
 
     }, err => {
       this.errorMessage = err.error.message;
