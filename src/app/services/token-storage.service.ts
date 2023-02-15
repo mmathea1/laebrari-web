@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-const TOKEN_KEY = 'auth-token';
+const TOKEN_KEY = 'token';
 const USER_KEY = 'auth-user';
 
 
@@ -38,7 +38,7 @@ export class TokenStorageService {
   }
 
   public isAuthenticated(): boolean {
-    const token = this.getToken();
+    const token = localStorage.getItem(TOKEN_KEY);
     return token !== null && token !== undefined;
   }
 }
