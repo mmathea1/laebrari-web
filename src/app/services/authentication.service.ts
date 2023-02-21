@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environments';
-import { Token } from '@angular/compiler';
 
-const AUTH_API = 'http://localhost:8000/'
+const AUTH_API = 'http://localhost:8000/';
 
 
 @Injectable({
