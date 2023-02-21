@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-const baseUrl = 'http://localhost:8000';
+import { Observable } from 'rxjs';
+import { User } from '../helpers/user';
+
+const AUTH_API = 'http://localhost:8000/';
+
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
-
   constructor(private http: HttpClient) { }
 
-  getAll() {
-    return this.http.get(baseUrl);
+  // fetch user profile details
+  getUserProfile(): Observable<User> {
+    return this.http.get<User>(AUTH_API + 'profile');
   }
 
-  login() {
-    return this.http.post(baseUrl + '/login');
-  }
 }
