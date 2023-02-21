@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule, HttpXsrfTokenExtractor } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
@@ -15,6 +15,7 @@ import { TokenInterceptor } from './helpers/token.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationService } from './services/authentication.service';
+import { UserComponent } from './components/user/user.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { AuthenticationService } from './services/authentication.service';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,

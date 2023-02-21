@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './services/token-storage.service';
+import { HomeService } from './services/home.service';
 
 @Component({
   selector: 'app-root',
@@ -8,21 +9,30 @@ import { TokenStorageService } from './services/token-storage.service';
 })
 export class AppComponent implements OnInit {
   isLoggedIn = false;
+  isAuthenticated = false;
   user = {};
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(private tokenService: TokenStorageService, private homeService: HomeService) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = !!this.tokenStorageService.isAuthenticated();
+    this.isAuthenticated = !!this.tokenService.isAuthenticated();
+    this.user = this.tokenService.getSessionUser();
+    this.getUserProfile();
 
-    if (this.isLoggedIn) {
-      this.user = this.tokenStorageService.getSessionUser();
-      console.log(this.user);
+    if (this.isAuthenticated && this.user !== null) {
+      this.isLoggedIn = true;
     }
   }
 
+  getUserProfile() {
+    this.homeService.getUserProfile().subscribe(data => {
+      this.user = data;
+      this.tokenService.saveUser(data);
+    }, error => console.log(error));
+  }
+
   logout(): void {
-    this.tokenStorageService.signOut();
+    this.tokenService.signOut();
     window.location.reload();
   }
   title = 'laebrari-web';
