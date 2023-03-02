@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-6">
+        <form [formGroup]="createLibraryForm" (ngSubmit)="submitLibrary()">
+            <!--Library Name-->
+            <div class="form-group">
+                <label for="name">Library Name</label>
+                <input type="text" class="form-control" formControlName="name" id="name" aria-describedby="">
+                <small id="name_required" class="form-text text-muted">Library Name required.</small>
+            </div>
+            <!--Location-->
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" formControlName="location" id="location" aria-describedby="">
+                <small id="location_required" class="form-text text-muted">Location required.</small>
+            </div>
+            <!--Address-->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" formControlName="address" id="address" aria-describedby="">
+                <small id="address_required" class="form-text text-muted">Address required.</small>
+            </div>
+            <!--Description-->
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" formControlName="description" id="description"
+                    aria-describedby="">
+                <small id="description_required" class="form-text text-muted">Description required.</small>
+            </div>
+            <!--Phone Number-->
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                <input type="tel" class="form-control" formControlName="phone_number" id="phone_number"
+                    aria-describedby="">
+                <small id="phone_number_required" class="form-text text-muted">Phone Number required.</small>
+            </div>
+            <!--Email-->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" formControlName="email" id="email" aria-describedby="">
+                <small id="email_required" class="form-text text-muted">Email required.</small>
+            </div>
+            <!--Date Established-->
+            <div class="form-group">
+                <label for="date_established">Date Established</label>
+                <input type="date" class="form-control" formControlName="date_established" id="date_established"
+                    aria-describedby="">
+                <small id="date_established_required" class="form-text text-muted">Date Established required.</small>
+            </div>
+            <!--Established By-->
+            <div class="form-group">
+                <label for="established_by">Established By</label>
+                <input type="text" class="form-control" formControlName="established_by" id="established_by"
+                    aria-describedby="">
+                <small id="established_by" class="form-text text-muted">Established By required.</small>
+            </div>
+            <!--Library Type-->
+            <div class="form-group">
+                <label for="library_type">Library Type</label>
+                <select formControlName="type" id="library_type" class="form-control" aria-describedby="">
+                    <option value="PRIVATE">PRIVATE</option>
+                    <option value="PUBLIC">PUBLIC</option>
+                    <option value="UNLISTED">UNLISTED</option>
+                </select>
+                <small id="library_type_required" class="form-text text-muted">Library Type required.</small>
+            </div>
+            <button type="submit" class="btn btn-primary clear">Submit</button>
+        </form>
+    </div>
+</div>
