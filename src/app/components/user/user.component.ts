@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { User } from 'src/app/helpers/user';
+import { User } from 'src/app/helpers/interfaces';
 import { HomeService } from 'src/app/services/home.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 
@@ -35,16 +35,13 @@ export class UserComponent implements OnInit {
     profile_picture: '',
   };
 
-  constructor(private tokenService: TokenStorageService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getProfile();
+
   }
 
-  getProfile() {
-    this.user = this.tokenService.getSessionUser();
-    console.log(this.user);
-  }
+
 
 
 }

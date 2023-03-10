@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../helpers/user';
+import { User } from '../helpers/interfaces';
 
 const TOKEN_KEY = 'token';
 const USER_KEY = 'user';
