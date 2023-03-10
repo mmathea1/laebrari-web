@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationService } from './services/authentication.service';
 import { UserComponent } from './components/user/user.component';
+import { CreateLibraryComponent } from './components/create-library/create-library.component';
+import { ViewLibraryComponent } from './components/view-library/view-library.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { UserComponent } from './components/user/user.component';
     LoginComponent,
     RegisterComponent,
     UserComponent,
+    CreateLibraryComponent,
+    ViewLibraryComponent,
   ],
   imports: [
     BrowserModule,
