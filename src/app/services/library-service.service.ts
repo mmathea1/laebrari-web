@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
+import { Observable, catchError, map } from 'rxjs';
 import { environment } from '../../environments/environments';
 
 @Injectable({
@@ -13,5 +13,6 @@ export class LibraryServiceService {
 
   createLibrary(data: any): Observable<any> {
     return this.http.post(this.libraryUrl, data);
+
   }
 }
