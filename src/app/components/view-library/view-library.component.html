@@ -1,1 +1,19 @@
-<p>view-library works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Name: {{ library.name}}</li>
+                        <li class="list-group-item">Location: {{ library.location}}</li>
+                        <li class="list-group-item">Description: {{ library.description}}</li>
+                        <li class="list-group-item">Phone Number: {{ library.phone_number}}</li>
+                        <li class="list-group-item">Email: {{ library.email}}</li>
+                        <li class="list-group-item">Established By: {{ library.established_by}}</li>
+                        <li class="list-group-item">Date Established: {{ library.date_established | date}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
