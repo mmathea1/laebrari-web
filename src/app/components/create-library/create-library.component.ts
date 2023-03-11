@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Library } from 'src/app/helpers/interfaces';
-import { LibraryServiceService } from 'src/app/services/library-service.service';
+import { LibraryService } from 'src/app/services/library.service';
 
 @Component({
   selector: 'app-create-library',
@@ -35,7 +35,7 @@ export class CreateLibraryComponent implements OnInit {
     type: new FormControl(''),
   });
 
-  constructor(private libraryService: LibraryServiceService, private router: Router) { }
+  constructor(private libraryService: LibraryService, private router: Router) { }
 
   ngOnInit(): void { }
 
