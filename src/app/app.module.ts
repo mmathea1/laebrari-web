@@ -18,6 +18,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { UserComponent } from './components/user/user.component';
 import { CreateLibraryComponent } from './components/create-library/create-library.component';
 import { ViewLibraryComponent } from './components/view-library/view-library.component';
+import { NewBookComponent } from './components/new-book/new-book.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ViewLibraryComponent } from './components/view-library/view-library.com
     UserComponent,
     CreateLibraryComponent,
     ViewLibraryComponent,
+    NewBookComponent,
   ],
   imports: [
     BrowserModule,
