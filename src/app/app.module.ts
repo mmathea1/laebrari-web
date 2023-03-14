@@ -19,6 +19,7 @@ import { UserComponent } from './components/user/user.component';
 import { NewLibraryComponent } from './components/new-library/new-library.component';
 import { ViewLibraryComponent } from './components/view-library/view-library.component';
 import { NewBookComponent } from './components/new-book/new-book.component';
+import { BookDetailComponent } from './components/book-detail/book-detail.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { NewBookComponent } from './components/new-book/new-book.component';
     NewLibraryComponent,
     ViewLibraryComponent,
     NewBookComponent,
+    BookDetailComponent,
   ],
   imports: [
     BrowserModule,

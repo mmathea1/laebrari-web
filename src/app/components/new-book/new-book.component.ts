@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
 
 @Component({
@@ -23,16 +24,16 @@ export class NewBookComponent implements OnInit {
     library: new FormControl(''),
   });
 
-  constructor(private bookService: BooksService) { }
+  constructor(private bookService: BooksService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   submitBook(): void {
-    console.log('book: ', this.createBookForm.value);
     this.bookService.createBook(this.createBookForm.value).subscribe({
       next: data => {
-        console.log('book created: ', data);
+        var id = data.id;
+        this.router.navigate(['book-detail', id]);
       },
       error: error => {
         console.log('error creating book: ', error);

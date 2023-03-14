@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class=card-header>
+                    <h3>{{ book.title}} Details</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Title: {{ book.title}}</li>
+                        <li class="list-group-item">Author: {{ book.author}}</li>
+                        <li class="list-group-item">Memo: {{ book.memo}}</li>
+                        <li class="list-group-item">Date Acquired: {{ book.date_acquired| date}}</li>
+                        <li class="list-group-item">ISBN: {{ book.isbn}}</li>
+                        <li class="list-group-item">Owner: {{ book.owner}}</li>
+                        <li class="list-group-item">Genre: {{ book.genre}}</li>
+                        <li class="list-group-item">Available to borrow: {{ book.available_to_borrow}}</li>
+                        <li class="list-group-item">Available to sell: {{ book.available_to_sell}}</li>
+                        <li class="list-group-item">Borrowing Price: {{ book.borrowing_price}}</li>
+                        <li class="list-group-item">Selling Price: {{ book.selling_price}}</li>
+                        <li class="list-group-item">Book Condition: {{ book.book_condition}}</li>
+                        <li class="list-group-item">Library: {{ book.library}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
