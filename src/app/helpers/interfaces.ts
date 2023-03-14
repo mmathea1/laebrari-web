@@ -24,3 +24,19 @@ export interface Library {
     type: string,
     librarian: number
 }
+
+export interface Book {
+    title: string,
+    author: string,
+    memo: string,
+    isbn: string,
+    date_acquired: string,
+    genre: string,
+    available_to_borrow: boolean,
+    available_to_sell: boolean,
+    borrowing_price: number,
+    selling_price: number,
+    book_condition: string,
+    library: string,
+    owner: string
+}

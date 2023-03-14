@@ -16,8 +16,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationService } from './services/authentication.service';
 import { UserComponent } from './components/user/user.component';
-import { CreateLibraryComponent } from './components/create-library/create-library.component';
+import { NewLibraryComponent } from './components/new-library/new-library.component';
 import { ViewLibraryComponent } from './components/view-library/view-library.component';
+import { NewBookComponent } from './components/new-book/new-book.component';
+import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
@@ -28,8 +30,10 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     LoginComponent,
     RegisterComponent,
     UserComponent,
-    CreateLibraryComponent,
+    NewLibraryComponent,
     ViewLibraryComponent,
+    NewBookComponent,
+    BookDetailComponent,
     EditProfileComponent,
   ],
   imports: [

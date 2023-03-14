@@ -5,11 +5,11 @@ import { Library } from 'src/app/helpers/interfaces';
 import { LibraryService } from 'src/app/services/library.service';
 
 @Component({
-  selector: 'app-create-library',
-  templateUrl: './create-library.component.html',
-  styleUrls: ['./create-library.component.css']
+  selector: 'app-new-library',
+  templateUrl: './new-library.component.html',
+  styleUrls: ['./new-library.component.css']
 })
-export class CreateLibraryComponent implements OnInit {
+export class NewLibraryComponent implements OnInit {
   library: Library = {
     id: 0,
     name: "",

@@ -1,0 +1,118 @@
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="createBookForm" (ngSubmit)="submitBook()">
+                    <!--Title-->
+                    <div class="form-group">
+                        <label for="title">Book Title</label>
+                        <input type="text" class="form-control" formControlName="title" id="title" aria-describedby="">
+                        <small id="title_required" class="form-text text-muted">Book Title required.</small>
+                    </div>
+                    <!--author-->
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" class="form-control" formControlName="author" id="author"
+                            aria-describedby="">
+                        <small id="location_required" class="form-text text-muted">Location required.</small>
+                    </div>
+                    <!--Genre-->
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <input type="text" class="form-control" formControlName="genre" id="genre" aria-describedby="">
+                        <small id="genre" class="form-text text-muted">Genre required.</small>
+                    </div>
+                    <!--Isbn-->
+                    <div class="form-group">
+                        <label for="isbn">Isbn</label>
+                        <input type="text" class="form-control" formControlName="isbn" id="isbn" aria-describedby="">
+                        <small id="isbn" class="form-text text-muted">Isbn required.</small>
+                    </div>
+                    <!--Date acquired-->
+                    <div class="form-group">
+                        <label for="date_acquired">Date Acquired</label>
+                        <input type="date" class="form-control" formControlName="date_acquired" id="date_acquired"
+                            aria-describedby="">
+                        <small id="date_acquired" class="form-text text-muted">Date required.</small>
+                    </div>
+                    <!--Memo-->
+                    <div class="form-group">
+                        <label for="memo">Memo</label>
+                        <input type="textarea" class="form-control" formControlName="memo" id="memo"
+                            aria-describedby="">
+                        <small id="memo" class="form-text text-muted">Memo required.</small>
+                    </div>
+                    <!--Book condition-->
+                    <div class="form-group">
+                        <label for="book_condition">Book Condition</label>
+                        <select formControlName="book_condition" id="book_condition" class="form-control"
+                            aria-describedby="">
+                            <option value="NEW">NEW</option>
+                            <option value="USED">USED</option>
+                        </select>
+                        <small id="book_condition" class="form-text text-muted">Book condition required.</small>
+                    </div>
+                    <!-- Borrowing -->
+                    <div class="row">
+                        <div class="col">
+                            <!--Available to borrow-->
+                            <div class="form-group">
+                                <label for="available_to_borrow">Available to borrow</label>
+                                <input type="checkbox" class="form-control" formControlName="available_to_borrow"
+                                    id="available_to_borrow" aria-describedby="">
+                                <small id="available_to_borrow" class="form-text text-muted">Available to borrow
+                                    required.</small>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!--Borrowing price-->
+                            <div class="form-group">
+                                <label for="borrowing_price">Borrowing price</label>
+                                <input type="number" class="form-control" formControlName="borrowing_price"
+                                    id="borrowing_price" aria-describedby="">
+                                <small id="borrowing_price" class="form-text text-muted">Borrowing price
+                                    required.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Selling -->
+                    <div class="row">
+                        <div class="col">
+                            <!--Available to sell-->
+                            <div class="form-group">
+                                <label for="available_to_sell">Available to sell</label>
+                                <input type="checkbox" class="form-control" formControlName="available_to_sell"
+                                    id="available_to_sell" aria-describedby="">
+                                <small id="available_to_sell" class="form-text text-muted">Available to sell
+                                    required.</small>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!--Selling price-->
+                            <div class="form-group">
+                                <label for="selling_price">Selling price</label>
+                                <input type="number" class="form-control" formControlName="selling_price"
+                                    id="selling_price" aria-describedby="">
+                                <small id="selling_price" class="form-text text-muted">Selling price
+                                    required.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Library-->
+                    <div class="form-group">
+                        <label for="library">Library</label>
+                        <select formControlName="library" id="library" class="form-control" aria-describedby="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <small id="library_required" class="form-text text-muted">Library required.</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary clear">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
