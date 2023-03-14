@@ -7,7 +7,7 @@ import { Library } from '../helpers/interfaces';
 @Injectable({
   providedIn: 'root'
 })
-export class LibraryServiceService {
+export class LibraryService {
 
   private library$ = new BehaviorSubject<Library>({
     id: 0,

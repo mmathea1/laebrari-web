@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { User } from 'src/app/helpers/interfaces';
-import { HomeService } from 'src/app/services/home.service';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { Profile } from 'src/app/helpers/interfaces';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-user',
@@ -10,19 +8,7 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  userForm = new FormGroup({
-    id: new FormControl(''),
-    username: new FormControl(''),
-    first_name: new FormControl(''),
-    last_name: new FormControl(''),
-    phone_number: new FormControl(''),
-    email: new FormControl(''),
-    date_joined: new FormControl(''),
-    profile_picture: new FormControl(''),
-    address: new FormControl(''),
-    bio: new FormControl(''),
-  });
-  user: User = {
+  profile: Profile = {
     username: '',
     first_name: '',
     last_name: '',
@@ -33,12 +19,14 @@ export class UserComponent implements OnInit {
     bio: '',
     id: '',
     profile_picture: '',
-  };
+  }
 
-  constructor() { }
+  constructor(private profileService: ProfileService) { }
 
   ngOnInit(): void {
-
+    this.profileService.getProfile().subscribe((profile) => {
+      this.profile = profile; 
+    });
   }
 
 
