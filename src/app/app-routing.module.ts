@@ -8,6 +8,7 @@ import { NewLibraryComponent } from './components/new-library/new-library.compon
 import { ViewLibraryComponent } from './components/view-library/view-library.component';
 import { NewBookComponent } from './components/new-book/new-book.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,6 +16,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: UserComponent },
   { path: 'new-library', component: NewLibraryComponent },
+  {
+    path: 'profile', component: UserComponent,
+    children: [
+      { path: 'edit-profile', component: EditProfileComponent }
+    ]
+  },
   { path: 'view-library', component: ViewLibraryComponent },
   { path: 'new-book', component: NewBookComponent },
   { path: 'book-detail/:id', component: BookDetailComponent },

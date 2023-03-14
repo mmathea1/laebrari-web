@@ -20,6 +20,7 @@ import { NewLibraryComponent } from './components/new-library/new-library.compon
 import { ViewLibraryComponent } from './components/view-library/view-library.component';
 import { NewBookComponent } from './components/new-book/new-book.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
     ViewLibraryComponent,
     NewBookComponent,
     BookDetailComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,

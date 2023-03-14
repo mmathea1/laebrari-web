@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Library } from 'src/app/helpers/interfaces';
-import { LibraryServiceService } from 'src/app/services/library-service.service';
+import { LibraryService } from 'src/app/services/library.service';
 
 @Component({
   selector: 'app-view-library',
@@ -23,7 +23,7 @@ export class ViewLibraryComponent implements OnInit {
     librarian: 0
   }
 
-  constructor(private libraryService: LibraryServiceService) { }
+  constructor(private libraryService: LibraryService) { }
 
   ngOnInit(): void {
     this.libraryService.getLibrary().subscribe((library) => { this.library = library });

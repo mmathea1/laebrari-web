@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { User } from '../helpers/interfaces';
+import { Profile } from '../helpers/interfaces';
+import { ProfileService } from './profile.service';
 
 const TOKEN_KEY = 'token';
 const USER_KEY = 'user';
@@ -10,7 +11,7 @@ const USER_KEY = 'user';
 })
 export class TokenStorageService {
 
-  constructor() { }
+  constructor(private profileService: ProfileService) { }
 
   signOut(): void {
     window.sessionStorage.clear();
@@ -25,9 +26,9 @@ export class TokenStorageService {
     return localStorage.getItem(TOKEN_KEY);
   }
 
-  public saveUser(user: User): void {
+  public saveUser(profile: any): void {
     window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+    window.sessionStorage.setItem(USER_KEY, JSON.stringify(profile));
   }
 
   public getSessionUser(): any {
