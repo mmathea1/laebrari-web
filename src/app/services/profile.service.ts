@@ -22,7 +22,7 @@ export class ProfileService {
     id: '',
     profile_picture: '',
   });
-  private currentProfile$ = this.profile$.asObservable();
+  currentProfile$ = this.profile$.asObservable();
 
   constructor(private http: HttpClient) { }
 

@@ -26,18 +26,13 @@ export class TokenStorageService {
     return localStorage.getItem(TOKEN_KEY);
   }
 
-  public saveUser(): void {
-    this.profileService.getUserProfile().subscribe(profile => {
-      window.sessionStorage.removeItem(USER_KEY);
-      window.sessionStorage.setItem(USER_KEY, JSON.stringify(profile));
-      this.profileService.setProfile(profile);
-    });
-
+  public saveUser(profile: any): void {
+    window.sessionStorage.removeItem(USER_KEY);
+    window.sessionStorage.setItem(USER_KEY, JSON.stringify(profile));
   }
 
   public getSessionUser(): any {
     const user = window.sessionStorage.getItem(USER_KEY);
-    console.log("getSessionUser: ", user);
     return user;
   }
 

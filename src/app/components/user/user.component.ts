@@ -21,9 +21,13 @@ export class UserComponent implements OnInit {
     profile_picture: '',
   }
 
-  constructor() { }
+  constructor(private profileService: ProfileService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.profileService.getProfile().subscribe((profile) => {
+      this.profile = profile; 
+    });
+  }
 
 
 

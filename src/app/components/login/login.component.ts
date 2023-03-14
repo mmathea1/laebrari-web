@@ -13,7 +13,11 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 export class LoginComponent implements OnInit {
   public loginForm!: FormGroup;
 
-  constructor(private authenticationService: AuthenticationService, private tokenStorageService: TokenStorageService, private router: Router) { }
+  constructor(
+    private authenticationService: AuthenticationService,
+    private tokenStorageService: TokenStorageService,
+    private router: Router,
+    private profileService: ProfileService) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -27,9 +31,12 @@ export class LoginComponent implements OnInit {
     const username = this.loginForm.get('username')!.value;
     const password = this.loginForm.get('password')!.value
     this.authenticationService.login(username, password).subscribe(result => {
-      this.tokenStorageService.saveUser();
+      this.profileService.setProfile(result['user']);
+      this.tokenStorageService.saveUser(result['user']);
       localStorage.setItem('token', result['token']);
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home']).then(() => {
+        window.location.reload();
+      });;
     }, err => {
       console.log('login failed because of: ', err);
     });
