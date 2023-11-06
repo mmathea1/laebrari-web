@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: UserComponent },
   { path: 'new-library', component: NewLibraryComponent },
+  { path: 'new-book', component: NewBookComponent },
   {
     path: 'profile', component: UserComponent,
     children: [
